@@ -1,0 +1,23 @@
+{
+  "name": "portal_noticias",
+  "version": "1.0.0",
+  "description": "Site de notícias",
+  "main": "noticias.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edvardp/CursoNode.git"
+  },
+  "keywords": [
+    "curso",
+    "node"
+  ],
+  "author": "edvard pereira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edvardp/CursoNode/issues"
+  },
+  "homepage": "https://github.com/edvardp/CursoNode#readme"
+}
