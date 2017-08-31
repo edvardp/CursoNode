@@ -3,7 +3,7 @@
 
         const noticiaService = require('../services/noticia.service')(app);
 
-        app.get('/noticias/:message?', (req, res) => {
+        app.get('/noticias/', (req, res) => {
             var message = req.params.message;
             noticiaService.listNoticias()
                 .then((response) => {
