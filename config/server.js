@@ -1,9 +1,21 @@
 (function () {
     const express = require('express');
+    const consign = require('consign');
+    const bodyParser = require('body-parser');
+
     const app = express();
-    app.set('port', 5000);
+
+    app.set('port', 9000);
     app.set('view engine', 'ejs');
     app.set('views', './app/views');
+
+    app.use(bodyParser.urlencoded({ extended: true }));
+
+    consign()
+        .include('config/dbConnection.js')
+        .then('./app/routes')
+        .then('app/models')
+        .into(app);
 
     module.exports = app;
 })();

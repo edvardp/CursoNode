@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/edvardp/CursoNode/issues"
   },
-  "homepage": "https://github.com/edvardp/CursoNode#readme"
+  "homepage": "https://github.com/edvardp/CursoNode#readme",
+  "dependencies": {
+    "consign": "^0.1.6"
+  }
 }

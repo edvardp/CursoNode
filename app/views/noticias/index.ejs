@@ -1,12 +1,41 @@
 <!DOCTYPE html>
-	<html lang="pt-br">
-		<head>
-			<meta charset="utf-8"/>
-			<title>Notícias</title>
-		</head>
-	<body>
+<html lang="pt-br">
 
-		<h1>Notícias</h1>
+<head>
+	<meta charset="utf-8" />
+	<title>NotÃ­cias</title>
+</head>
 
-	</body>
+<body>
+	<%= mensagem %>
+	<h1>NotÃ­cias</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>TÃ­tulo</th>
+				<th>Texto</th>
+				<th>Link</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<% for( var i = 0; i < noticias.length; i++) { %>
+				<tr>
+					<td>
+						<%= noticias[i].titulo %>
+					</td>
+					<td>
+						<%= noticias[i].texto %>
+					</td>
+					<td>
+						<a href="/noticias/detalhes/<%= noticias[i].id %>">Visualizar</a>
+					</td>
+				</tr>
+			<% } %>
+			
+		</tbody>
+	</table>
+
+</body>
+
 </html>

@@ -1,0 +1,4 @@
+-- Acesso ao mysql. 
+    -Ativar o serviço no windows
+    -[path do mysql]> mysql -u root -p
+    
