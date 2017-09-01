@@ -13,8 +13,8 @@
 
     consign()
         .include('config/dbConnection.js')
+        .then('./app/models')
         .then('./app/routes')
-        .then('app/models')
         .into(app);
 
     module.exports = app;
