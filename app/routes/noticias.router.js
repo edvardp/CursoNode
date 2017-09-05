@@ -7,7 +7,7 @@
 
         app.get('/noticias/', (req, res) => {
             var message = req.params.message;
-            NoticiaDAO.listNoticias(connection)
+            NoticiaDAO.listNoticias()
                 .then((response) => {
                     res.render('noticias/index', { noticias: response, mensagem: message });
                 });
@@ -15,7 +15,7 @@
 
         app.get('/noticias/detalhes/:id', (req, res) => {
             var id = req.params.id;
-            NoticiaDAO.getNoticia(connection, id)
+            NoticiaDAO.getNoticia(id)
                 .then((response) => {
                     res.render('noticias/detalhes', { noticia: response });
                 });
@@ -27,7 +27,7 @@
 
         app.post('/noticias/cadastrar', (req, res) => {
             var params = { titulo: req.body.titulo, texto: req.body.texto };
-            NoticiaDAO.insertNoticia(connection, params)
+            NoticiaDAO.insertNoticia(params)
                 .then((response) => {
                     res.redirect('/noticias');
                 });

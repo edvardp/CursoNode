@@ -1,7 +1,6 @@
 (() => {
     class NoticiaDAO {
         constructor(connection){
-            console.log(connection.query);
             this._connection = connection;
         }
     }
