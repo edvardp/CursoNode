@@ -3,11 +3,11 @@
 
         // const noticiaService = require('../services/noticia.service')(app);
         const connection = app.config.dbConnection();
-        var Noticia = new app.app.models.noticiaModel();
+        var NoticiaDAO = new app.app.models.NoticiaDAO(connection);
 
         app.get('/noticias/', (req, res) => {
             var message = req.params.message;
-            Noticia.listNoticias(connection)
+            NoticiaDAO.listNoticias(connection)
                 .then((response) => {
                     res.render('noticias/index', { noticias: response, mensagem: message });
                 });
@@ -15,7 +15,7 @@
 
         app.get('/noticias/detalhes/:id', (req, res) => {
             var id = req.params.id;
-            Noticia.getNoticia(connection, id)
+            NoticiaDAO.getNoticia(connection, id)
                 .then((response) => {
                     res.render('noticias/detalhes', { noticia: response });
                 });
@@ -27,7 +27,7 @@
 
         app.post('/noticias/cadastrar', (req, res) => {
             var params = { titulo: req.body.titulo, texto: req.body.texto };
-            Noticia.insertNoticia(connection, params)
+            NoticiaDAO.insertNoticia(connection, params)
                 .then((response) => {
                     res.redirect('/noticias');
                 });
