@@ -5,16 +5,41 @@
 			<title>Formulário de cadastro de Notícia</title>
 		</head>
 	<body>
-
 		<h1>Adicionar notícia</h1>
+
+		<% if (errors) {%>
+			<div class="alert alert-danger">
+				Foram encontrados os seguintes erros:
+				<ul>
+			<% for (var i = 0; i < errors.length; i++) { %>
+
+				<li><%= errors[i].msg %></li>
+
+			<% } %>
+				</ul>
+			</div>
+		 <%} %>
+
 		<form action="/noticias/cadastrar" method="post">
 			<div>
 				<label for="">Título</label>
-				<input type="text" id="titulo" name="titulo" />
+				<input type="text" id="titulo" name="titulo" placeholder="Título" value="<%= noticia.titulo %>" />
 			</div>
 			<div>
 				<label for="">Texto da Notícia</label>
-				<textarea id="texto" name="texto"></textarea>
+				<textarea id="texto" name="texto" placeholder="Texto da Notícia"><%= noticia.texto %></textarea>
+			</div>
+			<div>
+				<label for="">Resumo</label>
+				<input type="text" id="resumo" name="resumo" placeholder="Resumo" value="<%= noticia.resumo %>" />
+			</div>
+			<div>
+				<label for="">Autor</label>
+				<input type="text" id="autor" name="autor" placeholder="Autor" value="<%= noticia.autor %>" />
+			</div>
+			<div>
+				<label for="">Data da Notícia</label>
+				<input type="date" id="datanoticia" name="datanoticia" placeholder="Data da Notícia" value="<%= noticia.datanoticia %>" />
 			</div>
 			<div>
 				<input type="submit" value="Cadastrar" />

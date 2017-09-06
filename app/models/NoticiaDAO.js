@@ -6,7 +6,6 @@
     }
 
     NoticiaDAO.prototype.listNoticias = function() {
-        console.log(this)
         return new Promise((resolve, reject) => {
             const queryString = 'SELECT * FROM noticias;';
             this._connection.query(queryString, (error, result) => {
@@ -35,9 +34,9 @@
 
     NoticiaDAO.prototype.insertNoticia = function(params)  {
         return new Promise((resolve, reject) => {
-            const queryString = `INSERT INTO noticias (titulo, texto) VALUES ('${params.titulo}', '${params.texto}');`;
-            //const query = 'INSERT INTO noticias SET ?;';
-            this._connection.query(queryString, (error, result) => {
+            // const queryString = `INSERT INTO noticias (titulo, texto) VALUES ('${params.titulo}', '${params.texto}');`;
+            const queryString = 'INSERT INTO noticias SET ?;';
+            this._connection.query(queryString, params, (error, result) => {
                 if (error) {
                     return reject(error);
                 } else {
