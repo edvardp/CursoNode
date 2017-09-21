@@ -1,8 +1,14 @@
 (() => {
-    module.exports = function(app) {
+    module.exports = function (app) {
+
+        const NoticiaDAO = new app.app.models.NoticiaDAO(app);
 
         this.index = function (app, req, res) {
-            res.render('home/index');
+            NoticiaDAO.listNoticiasByQuantity(5)
+                .then((response) => {
+                    console.log(response);
+                    res.render('home/index', { noticias: response });
+                });
         }
 
         return this;

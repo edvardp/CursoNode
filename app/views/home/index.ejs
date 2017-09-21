@@ -5,8 +5,28 @@
 			<title>Portal de notícias</title>
 		</head>
 	<body>
-
 		<h1>Bem vindo a página inicial</h1>
 
+		<% for(var i = 0; i < noticias.length; i++) { %>
+
+			<ul>
+				<li>
+					<h2>
+						<a href="noticias/detalhes/<%=noticias[i].id%>"><%= noticias[i].titulo %></a>
+					</h2>
+					<p><%= noticias[i].resumo %></p>
+					<p>
+						Por: <i><%= noticias[i].autor %></i> - <i><%= noticias[i].datanoticia %></i>
+					</p>
+				</li>
+			</ul>
+
+		<% } %>
+
+		<div>
+			<h3>
+			<a href="noticias/">Ver todas as noticias</a>
+			</h3>
+		</div>
 	</body>
 </html>

@@ -2,9 +2,7 @@
 
     module.exports = function(app) {
 
-        const connection = app.config.dbConnection();
-        console.log(app.app.models.NoticiaDAO);
-        const NoticiaDAO = new app.app.models.NoticiaDAO(connection);
+        const NoticiaDAO = new app.app.models.NoticiaDAO(app);
 
         this.index = function (app, req, res) {
             NoticiaDAO.listNoticias()
